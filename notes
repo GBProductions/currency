@@ -1,0 +1,41 @@
+
+    <label for="dollarInput"> Write your number here!</label>
+    <input type ="text" id="dollarInput">
+
+
+  <p>Change US dollars to other currencies!</p>
+
+  <ul>
+    <li>Australia Dollar: AUD</li>
+    <li>Euro: EUR</li>
+    <li>Great Britain: GBP</li>
+    <li>Japan Yen: JPY</li>
+    <li>Switzerland Franc: CHF</li>
+  </ul>
+ 
+
+
+    <button onClick="window.location.reload();">Reset</button>
+
+  <br>
+
+
+  <form id="currencySelect">
+    <div class="form-group">
+      <label for="new-currency">Please choose a currency below to convert:</label>
+      <select id="new-currency" class="form-control">
+        <option>--Select--</option>
+        <option value="AUD">AUD</option>
+        <option value="EUR">EUR</option>
+        <option value="GBP">GBP</option>
+        <option value="JPY">JPY</option>
+        <option value="CHF">CHF</option>
+      </select>
+    </div>
+  </form>
+  <div class="showErrors"></div>
+  <div class="showAUD"></div>
+  <div class="showEUR"></div>
+  <div class="showGBP"></div>
+  <div class="showJPY"></div>
+  <div class="showCHF"></div>

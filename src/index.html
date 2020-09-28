@@ -1,47 +1,16 @@
 <head>
-  <script type="text/javascript" src="bundle.js"></script>
   <title>Currency</title>
 </head>
 <body>
   <div class="jumbotron">
     <h1>Currency Exchange</h1>
   </div>
-  <br>
-    <p>Change US dollars to other currencies!</p>
+  <div class="container">
     <br>
-    <ul>
-      <li>Australia Dollar: AUD</li>
-      <li>Euro: EUR</li>
-      <li>Great Britain: GBP</li>
-      <li>Japan Yen: JPY</li>
-      <li>Switzerland Franc: CHF</li>
-    </ul>
+    <button class="btn-success" id="submitDollar">Submit</button>
     <br>
-    <form id="formUsDollars">
-      <label for="dollarInput"> Write your number here!</label>
-      <input id="dollarInput" type="text" name="dollar">
-      <button type="submit">Submit</button>
-      <button onClick="window.location.reload();">Reset</button>
-    </form>
-    <br>
-    <form id="currencySelect">
-      <div class="form-group">
-        <label for="new-currency">Please choose a currency below to convert:</label>
-        <select id="new-currency" class="form-control">
-          <option>--Select--</option>
-          <option value="1">AUD</option>
-          <option value="2">EUR</option>
-          <option value="3">GBP</option>
-          <option value="4">JPY</option>
-          <option value="5">CHF</option>
-        </select>
-      </div>
-    </form>
+    <div class="showErrors"></div>
     <div class="showAUD"></div>
-    <div class="showEUR"></div>
-    <div class="showGBP"></div>
-    <div class="showJPY"></div>
-    <div class="showCHF"></div>
-
+  </div>
 </body>
 </html>
