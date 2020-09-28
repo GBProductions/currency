@@ -3,6 +3,11 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 
+function Money(usDollar) {
+  this.usDollar = usDollar;
+}
+
+
 
 function convertAUD(response) {
   $('.showAUD').text((response.conversion_rates.AUD));
@@ -47,7 +52,7 @@ function convertCHF(response) {
 
 $(document).ready(function() {
   $('#submitDollar').click(function() {
-    const usDollar = $('#dollarInput').val();
+    const usDollar = parseInt($('#dollarInput').val());
     $('#dollarInput').val("");
 
     const currency = $('#currencyInput').val();
@@ -73,7 +78,7 @@ $(document).ready(function() {
         const response = JSON.parse(this.responseText);
         convertCHF(response);
       } else if ((currency != "EUR" || "GBP" || "JPY" || "CHF" ) && this.readyState === 4 && this.status === 200) {
-        $('.showErrors').text("Sorry, but " + currency + " doesn't exist!");
+        $('.showErrors').text("Sorry, but the currency" + currency + " doesn't exist!");
         $('.showAUD').text("");
         $('.showEUR').text("");
         $('.showGBP').text("");
