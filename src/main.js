@@ -3,10 +3,6 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 
-// function Money(usDollar) {
-//   this.usDollar = usDollar;
-// }
-
 
 function convertAUD(response) {
   $('.showAUD').text(((response.conversion_rates.AUD) + " AUD"));
@@ -56,6 +52,15 @@ function notCurrency(currency) {
   $('.showJPY').text("");
   $('.showCHF').text("");
 }
+function statusError(error) {
+  $('.statusError').text("Sorry but you received a " + error + " error!");
+  $('.showErrors').text("");
+  $('.showAUD').text("");
+  $('.showEUR').text("");
+  $('.showGBP').text("");
+  $('.showJPY').text("");
+  $('.showCHF').text("");
+}
 
 
 //-------------------------------------------------------------------------------------------------
@@ -63,7 +68,6 @@ $(document).ready(function() {
   $('#submitDollar').click(function() {
     const usDollar = parseInt($('#dollarInput').val());
     $('#dollarInput').val("");
-    //let userInput  = new Money(usDollar);
 
     const currency = $('#currencyInput').val();
     $('#currencyInput').val("");
@@ -73,7 +77,10 @@ $(document).ready(function() {
     const url = `https://v6.exchangerate-api.com/v6/61905536dd0b5c15fe86d220/latest/USD`;
 
     request.onreadystatechange = function() {
-      if (currency === "AUD" && this.readyState === 4 && this.status === 200) {
+      if (this.status !== 200) {
+        let error = (this.status);
+        statusError(error);
+      }  else if (currency === "AUD" && this.readyState === 4 && this.status === 200) {
         const response = JSON.parse(this.responseText);
         (convertAUD(response));
       } else if (currency === "EUR" && this.readyState === 4 && this.status === 200) {
@@ -90,7 +97,7 @@ $(document).ready(function() {
         (convertCHF(response));
       } else if ((currency != "EUR" || "GBP" || "JPY" || "CHF" ) && this.readyState === 4 && this.status === 200)  {
         notCurrency(currency);
-      }
+      } 
     };
     request.open("GET", url, true);
     request.send();
