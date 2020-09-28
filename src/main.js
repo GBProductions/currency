@@ -3,13 +3,13 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 
-function Money(usDollar) {
-  this.usDollar = usDollar;
-}
+// function Money(usDollar) {
+//   this.usDollar = usDollar;
+// }
 
 
 function convertAUD(response) {
-  $('.showAUD').text(((response.conversion_rates.AUD * 10) + " AUD"));
+  $('.showAUD').text(((response.conversion_rates.AUD) + " AUD"));
   $('.showEUR').text("");
   $('.showGBP').text("");
   $('.showJPY').text("");
@@ -48,6 +48,14 @@ function convertCHF(response) {
   $('.showJPY').text("");
   $('.showErrors').text("");
 }
+function notCurrency(currency) {
+  $('.showErrors').text("Sorry, but the currency " + currency + " doesn't exist!");
+  $('.showAUD').text("");
+  $('.showEUR').text("");
+  $('.showGBP').text("");
+  $('.showJPY').text("");
+  $('.showCHF').text("");
+}
 
 
 //-------------------------------------------------------------------------------------------------
@@ -55,8 +63,7 @@ $(document).ready(function() {
   $('#submitDollar').click(function() {
     const usDollar = parseInt($('#dollarInput').val());
     $('#dollarInput').val("");
-
-    var userInput  = new Money(usDollar);
+    //let userInput  = new Money(usDollar);
 
     const currency = $('#currencyInput').val();
     $('#currencyInput').val("");
@@ -68,30 +75,22 @@ $(document).ready(function() {
     request.onreadystatechange = function() {
       if (currency === "AUD" && this.readyState === 4 && this.status === 200) {
         const response = JSON.parse(this.responseText);
-        userInput * (convertAUD(response));
+        (convertAUD(response));
       } else if (currency === "EUR" && this.readyState === 4 && this.status === 200) {
         const response = JSON.parse(this.responseText);
-        convertEUR(response);
+        (convertEUR(response));
       } else if (currency === "GBP" && this.readyState === 4 && this.status === 200) {
         const response = JSON.parse(this.responseText);
-        convertGBP(response);
+        (convertGBP(response));
       } else if (currency === "JPY" && this.readyState === 4 && this.status === 200) {
         const response = JSON.parse(this.responseText);
-        convertJPY(response);
+        (convertJPY(response));
       } else if (currency === "CHF" && this.readyState === 4 && this.status === 200) {
         const response = JSON.parse(this.responseText);
-        convertCHF(response);
-      } else if ((currency != "EUR" || "GBP" || "JPY" || "CHF" ) && this.readyState === 4 && this.status === 200) {
-        $('.showErrors').text("Sorry, but the currency" + currency + " doesn't exist!");
-        $('.showAUD').text("");
-        $('.showEUR').text("");
-        $('.showGBP').text("");
-        $('.showJPY').text("");
-        $('.showCHF').text("");
+        (convertCHF(response));
+      } else if ((currency != "EUR" || "GBP" || "JPY" || "CHF" ) && this.readyState === 4 && this.status === 200)  {
+        notCurrency(currency);
       }
-
-
-
     };
     request.open("GET", url, true);
     request.send();
