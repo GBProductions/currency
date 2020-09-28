@@ -6,13 +6,24 @@
     <h1>Currency Exchange</h1>
   </div>
   <div class="container">
-    <label for="dollarInput"> Write your amount in USD here!</label>
+    <p>Change US dollars (USD) to other currencies!</p>
+    <br>
+    <ul>
+      <li>Australia Dollar: AUD</li>
+      <li>Euro: EUR</li>
+      <li>Great Britain: GBP</li>
+      <li>Japan Yen: JPY</li>
+      <li>Switzerland Franc: CHF</li>
+    </ul>
+    <br>
+    <label for="dollarInput"> Write your amount in USD here! <b>$</b></label>
     <input type ="text" id="dollarInput">
     <br>
-    <label for="currencyInput"> Write what currency you want to convert to here!</label>
+    <label for="currencyInput"> Write what currency you want to convert to here! (Ex: AUD, EUR, etc.)</label>
     <input type ="text" id="currencyInput">
     <br>
     <button class="btn-success" id="submitDollar">Submit</button>
+    <br>
     <br>
     <div class="showErrors"></div>
     <div class="showAUD"></div>

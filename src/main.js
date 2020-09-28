@@ -5,7 +5,7 @@ import './css/styles.css';
 
 
 function convertAUD(response, usDollar) {
-  $('.showAUD').text(((response.conversion_rates.AUD * usDollar) + " AUD"));
+  $('.showAUD').text(("Your $" + usDollar + " is equal to " + (response.conversion_rates.AUD * usDollar) + " AUD."));
   $('.showEUR').text("");
   $('.showGBP').text("");
   $('.showJPY').text("");
@@ -13,7 +13,7 @@ function convertAUD(response, usDollar) {
   $('.showErrors').text("");
 }
 function convertEUR(response, usDollar) {
-  $('.showEUR').text((response.conversion_rates.EUR * usDollar) + " EUR");
+  $('.showEUR').text("Your $" + usDollar + " is equal to " + (response.conversion_rates.EUR * usDollar) + " EUR.");
   $('.showAUD').text("");
   $('.showGBP').text("");
   $('.showJPY').text("");
@@ -21,7 +21,7 @@ function convertEUR(response, usDollar) {
   $('.showErrors').text("");
 }
 function convertGBP(response, usDollar) {
-  $('.showGBP').text((response.conversion_rates.GBP * usDollar) + " GBP");
+  $('.showGBP').text("Your $" + usDollar + " is equal to " + (response.conversion_rates.GBP * usDollar) + " GBP.");
   $('.showAUD').text("");
   $('.showEUR').text("");
   $('.showJPY').text("");
@@ -29,7 +29,7 @@ function convertGBP(response, usDollar) {
   $('.showErrors').text("");
 }
 function convertJPY(response, usDollar) {
-  $('.showJPY').text((response.conversion_rates.JPY * usDollar) + " JPY");
+  $('.showJPY').text("Your $" + usDollar + " is equal to " + (response.conversion_rates.JPY * usDollar) + " JPY.");
   $('.showAUD').text("");
   $('.showEUR').text("");
   $('.showGBP').text("");
@@ -37,7 +37,7 @@ function convertJPY(response, usDollar) {
   $('.showErrors').text("");
 }
 function convertCHF(response, usDollar) {
-  $('.showCHF').text((response.conversion_rates.CHF * usDollar) + " CHF");
+  $('.showCHF').text("Your $" + usDollar + " is equal to " + (response.conversion_rates.CHF * usDollar) + " CHF.");
   $('.showAUD').text("");
   $('.showEUR').text("");
   $('.showGBP').text("");
