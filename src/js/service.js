@@ -50,3 +50,12 @@ export function notCurrency(currency) {
   $('.showJPY').text("");
   $('.showCHF').text("");
 }
+export function statusError(error) {
+  $('.statusError').text("You have a " + error + " status error!");
+  $('.showErrors').text("");
+  $('.showAUD').text("");
+  $('.showEUR').text("");
+  $('.showGBP').text("");
+  $('.showJPY').text("");
+  $('.showCHF').text("");
+}

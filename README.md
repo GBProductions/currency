@@ -1,6 +1,6 @@
 # _Currency Exchange_
 
-#### _Program that will convert currencies._ _Sept. 20th 2020_
+#### _Program that will convert currencies._ _Sept. 28th 2020_
 
 #### By _**Garrett Brown**_
 
