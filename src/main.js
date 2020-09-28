@@ -22,17 +22,28 @@ function convertEUR(response) {
 }
 function convertGBP(response) {
   $('.showGBP').text(response.conversion_rates.GBP);
+  $('.showAUD').text("");
+  $('.showEUR').text("");
+  $('.showJPY').text("");
+  $('.showCHF').text("");
+  $('.showErrors').text("");
 }
 function convertJPY(response) {
   $('.showJPY').text(response.conversion_rates.JPY);
+  $('.showAUD').text("");
+  $('.showEUR').text("");
+  $('.showGBP').text("");
+  $('.showCHF').text("");
+  $('.showErrors').text("");
 }
 function convertCHF(response) {
   $('.showCHF').text(response.conversion_rates.CHF);
+  $('.showAUD').text("");
+  $('.showEUR').text("");
+  $('.showGBP').text("");
+  $('.showJPY').text("");
+  $('.showErrors').text("");
 }
-function convertShowErrors(response) {
-  $('.showErrors').text("Sorry, but " + currency + " doesn't exist!");
-}
-
 
 $(document).ready(function() {
   $('#submitDollar').click(function() {
@@ -62,7 +73,12 @@ $(document).ready(function() {
         const response = JSON.parse(this.responseText);
         convertCHF(response);
       } else if ((currency != "EUR" || "GBP" || "JPY" || "CHF" ) && this.readyState === 4 && this.status === 200) {
-        convertShowErrors(response);
+        $('.showErrors').text("Sorry, but " + currency + " doesn't exist!");
+        $('.showAUD').text("");
+        $('.showEUR').text("");
+        $('.showGBP').text("");
+        $('.showJPY').text("");
+        $('.showCHF').text("");
       }
 
 
