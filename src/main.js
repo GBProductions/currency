@@ -6,8 +6,22 @@ import './css/styles.css';
 function convertAUD(response) {
   $('.showAUD').text(response.conversion_rates.AUD);
 }
+function convertAUD(response) {
+  $('.showEUR').text(response.conversion_rates.EUR);
+}
+function convertAUD(response) {
+  $('.showGBP').text(response.conversion_rates.GBP);
+}
+function convertAUD(response) {
+  $('.showJPY').text(response.conversion_rates.JPY);
+}
+function convertAUD(response) {
+  $('.showCHF').text(response.conversion_rates.CHF);
+}
 
 $(document).ready(function() {
+
+
   $('#submitDollar').click(function() {
 
     let request = new XMLHttpRequest();
