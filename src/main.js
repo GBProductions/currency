@@ -1,8 +1,8 @@
 import $ from 'jquery';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import  { convertAUD, convertEUR, convertGBP, convertJPY, convertCHF, notCurrency } from './js/service.js';
 import './css/styles.css';
-import './js/service.js';
 
 
 $(document).ready(function() {
