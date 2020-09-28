@@ -10,7 +10,7 @@ function Money(usDollar) {
 
 
 function convertAUD(response) {
-  $('.showAUD').text((response.conversion_rates.AUD));
+  $('.showAUD').text((response.conversion_rates.AUD + " AUD"));
   $('.showEUR').text("");
   $('.showGBP').text("");
   $('.showJPY').text("");
@@ -18,7 +18,7 @@ function convertAUD(response) {
   $('.showErrors').text("");
 }
 function convertEUR(response) {
-  $('.showEUR').text(response.conversion_rates.EUR);
+  $('.showEUR').text(response.conversion_rates.EUR + " EUR");
   $('.showAUD').text("");
   $('.showGBP').text("");
   $('.showJPY').text("");
@@ -26,7 +26,7 @@ function convertEUR(response) {
   $('.showErrors').text("");
 }
 function convertGBP(response) {
-  $('.showGBP').text(response.conversion_rates.GBP);
+  $('.showGBP').text(response.conversion_rates.GBP + " GBP");
   $('.showAUD').text("");
   $('.showEUR').text("");
   $('.showJPY').text("");
@@ -34,7 +34,7 @@ function convertGBP(response) {
   $('.showErrors').text("");
 }
 function convertJPY(response) {
-  $('.showJPY').text(response.conversion_rates.JPY);
+  $('.showJPY').text(response.conversion_rates.JPY + " JPY");
   $('.showAUD').text("");
   $('.showEUR').text("");
   $('.showGBP').text("");
@@ -42,7 +42,7 @@ function convertJPY(response) {
   $('.showErrors').text("");
 }
 function convertCHF(response) {
-  $('.showCHF').text(response.conversion_rates.CHF);
+  $('.showCHF').text(response.conversion_rates.CHF + " CHF");
   $('.showAUD').text("");
   $('.showEUR').text("");
   $('.showGBP').text("");
