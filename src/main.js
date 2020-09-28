@@ -8,9 +8,8 @@ function Money(usDollar) {
 }
 
 
-
 function convertAUD(response) {
-  $('.showAUD').text((response.conversion_rates.AUD + " AUD"));
+  $('.showAUD').text(((response.conversion_rates.AUD * 10) + " AUD"));
   $('.showEUR').text("");
   $('.showGBP').text("");
   $('.showJPY').text("");
@@ -50,13 +49,18 @@ function convertCHF(response) {
   $('.showErrors').text("");
 }
 
+
+//-------------------------------------------------------------------------------------------------
 $(document).ready(function() {
   $('#submitDollar').click(function() {
     const usDollar = parseInt($('#dollarInput').val());
     $('#dollarInput').val("");
 
+    var userInput  = new Money(usDollar);
+
     const currency = $('#currencyInput').val();
     $('#currencyInput').val("");
+
 
     let request = new XMLHttpRequest();
     const url = `https://v6.exchangerate-api.com/v6/61905536dd0b5c15fe86d220/latest/USD`;
@@ -64,7 +68,7 @@ $(document).ready(function() {
     request.onreadystatechange = function() {
       if (currency === "AUD" && this.readyState === 4 && this.status === 200) {
         const response = JSON.parse(this.responseText);
-        convertAUD(response);
+        userInput * (convertAUD(response));
       } else if (currency === "EUR" && this.readyState === 4 && this.status === 200) {
         const response = JSON.parse(this.responseText);
         convertEUR(response);
