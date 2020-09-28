@@ -2,7 +2,7 @@ import $ from 'jquery';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
-
+import './js/service.js';
 
 function convertAUD(response, usDollar) {
   $('.showAUD').text(("Your $" + usDollar + " is equal to " + (response.conversion_rates.AUD * usDollar) + " AUD."));
