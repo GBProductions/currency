@@ -6,16 +6,16 @@ import './css/styles.css';
 function convertAUD(response) {
   $('.showAUD').text(response.conversion_rates.AUD);
 }
-function convertAUD(response) {
+function convertEUR(response) {
   $('.showEUR').text(response.conversion_rates.EUR);
 }
-function convertAUD(response) {
+function convertGBP(response) {
   $('.showGBP').text(response.conversion_rates.GBP);
 }
-function convertAUD(response) {
+function convertJPY(response) {
   $('.showJPY').text(response.conversion_rates.JPY);
 }
-function convertAUD(response) {
+function convertCHF(response) {
   $('.showCHF').text(response.conversion_rates.CHF);
 }
 
@@ -31,6 +31,10 @@ $(document).ready(function() {
       if (this.readyState === 4 && this.status === 200) {
         const response = JSON.parse(this.responseText);
         convertAUD(response);
+        convertEUR(response);
+        convertGBP(response);
+        convertJPY(response);
+        convertCHF(response);
       }
     };
     request.open("GET", url, true);
